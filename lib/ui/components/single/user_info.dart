@@ -30,7 +30,7 @@ class _UserInfoState extends State<UserInfo> {
           children: [
           Container(
             child: new Image.asset(
-              'assets/images/appicon.png',
+              'assets/images/app_icon.png',
               height: 70.0,
             ),
           ),

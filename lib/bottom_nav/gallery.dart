@@ -16,13 +16,14 @@ class _GalleryState extends State<Gallery> {
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: Center(
-            child: Text("Dr.Seinn Gallery", style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.w700,
-                color: Colors.black
-            )),
+            child: Text("𝐑𝐞𝐬𝐮𝐥𝐭𝐬", style: TextStyle(fontSize: 18.0,
+                letterSpacing: 1.0,
+                color: Colors.green
+            ),),
           ),
         ),
         body: const WebView(
-          initialUrl: 'https://hisandhermyanmar-95b62f.ingress-erytho.easywp.com/hiss-and-hers-gallery',
+          initialUrl: 'https://drseinn-95b62f.ingress-bonde.easywp.com/results',
           javascriptMode: JavascriptMode.unrestricted,
         ),
       ),

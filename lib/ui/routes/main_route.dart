@@ -33,8 +33,9 @@ class _MainRouteState extends State<MainRoute> {
         appBar: AppBar(
                         iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
-          title: Text("His's and Her's", style: TextStyle(fontSize: 16.0,
-              color: Colors.black
+          title: Text("𝐃𝐫 𝐒𝐞𝐢𝐧𝐧", style: TextStyle(fontSize: 18.0,
+              letterSpacing: 1.0,
+              color: Colors.green
           )),
             actions: [Container(
               margin: EdgeInsets.only(
@@ -85,7 +86,7 @@ class _MainRouteState extends State<MainRoute> {
                   ),
                   onPressed: () async {
                     try {
-                      await launch('https://m.me/hisandhermyanmar');
+                      await launch('https://m.me/DrSeinn');
                     } catch (e) {
                       print(e);
                     }

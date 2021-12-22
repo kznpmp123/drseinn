@@ -5,11 +5,11 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-String url ='https://hisandhermyanmar-95b62f.ingress-erytho.easywp.com';
+String url ='https://drseinn.com';
 
 Future fetchWpPosts() async {
   final response = await http.get(Uri.parse(
-    "https://hisandhermyanmar-95b62f.ingress-erytho.easywp.com/index.php/wp-json/wp/v2/posts?per_page=100&categories=1&orderby=date&status=publish",
+    "https://drseinn.com/index.php/wp-json/wp/v2/posts?per_page=100",
     // headers: {"Accept: application/json"}
   ));
 
@@ -40,12 +40,12 @@ class _BlogState extends State<Blog> {
         iconTheme: const IconThemeData(color: Colors.indigo),
         backgroundColor: Colors.white,
         title: Center(
-          child: Text("Dr.Seinn Fashion Knowledge Blogs", style: TextStyle(fontWeight: FontWeight.w700,
-              fontSize: 16.0,
-              color: Colors.black
-          )),
+          child: Text("𝐃𝐫 𝐒𝐞𝐢𝐧𝐧 𝐊𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞 𝐁𝐥𝐨𝐠𝐬", style: TextStyle(fontSize: 18.0,
+                letterSpacing: 1.0,
+                color: Colors.green
+            ),),
         ),
-      ),
+        ),
 
       body: FutureBuilder(
         future: fetchWpPosts(),
@@ -98,50 +98,58 @@ class _PostTileState extends State<PostTile> {
           title: widget.title,
         )));
       },
-      child: Card(
-        elevation: 5,
-        // height: 150,
-        margin: EdgeInsets.only(top: 8),
-        // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-        child: Row(
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FutureBuilder(
-              future: fetchWpPostImageUrl(widget.href),
-              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                if(snapshot.hasData){
-                  imageUrl = snapshot.data["guid"]["rendered"];
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Image.network(snapshot.data['guid']["rendered"],
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover
+      child: Container(
+        height: 120,
+        child: Card(
+          elevation: 5,
+          margin: EdgeInsets.only(top: 8),
+          // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          child: Row(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FutureBuilder(
+                future: fetchWpPostImageUrl(widget.href),
+                builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                  if(snapshot.hasData){
+                    imageUrl = snapshot.data["guid"]["rendered"];
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Image.network(snapshot.data['guid']["rendered"],
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.cover
 
-                    ),
-                  );
-                }
-                if(snapshot.hasError){
-                  return Text(snapshot.error.toString());
-                }
+                      ),
+                    );
+                  }
+                  if(snapshot.hasError){
+                    return Text(snapshot.error.toString());
+                  }
 
-                return Center(child: CircularProgressIndicator());
-              },
-            ),
-
-            SizedBox(width: 8),
-
-            Expanded(child:
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [Text(widget.title,
-                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)
+                  return Center(child: CircularProgressIndicator());
+                },
               ),
-                shortDescritionView(),
-              ],)),
-            SizedBox(width: 5),
 
-          ],
+              SizedBox(width: 8),
+
+              Expanded(child:
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text(widget.title,
+                      style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)
+                  ),
+                ),
+                  Expanded(child: Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: shortDescritionView(),
+                  )),
+                ],)),
+              SizedBox(width: 5),
+
+            ],
+          ),
         ),
       ),
     );

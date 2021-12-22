@@ -23,11 +23,11 @@ class _PrivacyPolicyRouteState extends State<PrivacyPolicyRoute> {
         padding: const EdgeInsets.only(top: 20, left: 8, right: 8),
         child: SingleChildScrollView(child: Text(
           '''
-          His's and Her's Fashion Design School values the privacy of every person and is committed to protecting information that schools collect.
+          Dr.Seinn values the privacy of every person and is committed to protecting information that schools collect.
 
-School's all staff must comply with His's and Her's Fashion Design School privacy law and policy.
+School's all staff must comply with Dr.Seinn privacy law and policy.
 
-This policy explains how our school collects and manages personal informations, consistent with His's and Her's Fashion Design School law.'''
+This policy explains how our school collects and manages personal information, consistent with Dr.Seinn law.'''
         )),
       ),
 

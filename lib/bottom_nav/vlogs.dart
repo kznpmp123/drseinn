@@ -16,14 +16,15 @@ class _VlogsState extends State<Vlogs> {
           iconTheme: IconThemeData(color: Colors.black),
           backgroundColor: Colors.white,
           title: Center(
-            child: Text("Dr.Seinn Knowledge Vlogs", style: TextStyle(fontWeight: FontWeight.w700,
-                fontSize: 16.0,
-                color: Colors.black
-            )),
+            child: Text("𝐃𝐫 𝐒𝐞𝐢𝐧𝐧 𝐊𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐞 𝐕𝐥𝐨𝐠𝐬", style: TextStyle(fontSize: 18.0,
+                letterSpacing: 1.0,
+                color: Colors.green
+            ),
+            ),
           ),
         ),
         body: const WebView(
-          initialUrl: 'https://hisandhermyanmar-95b62f.ingress-erytho.easywp.com/hiss-and-hers-knowledge-vlogs',
+          initialUrl: 'https://drseinn-95b62f.ingress-bonde.easywp.com/vlog',
           javascriptMode: JavascriptMode.unrestricted,
         ),
       ),

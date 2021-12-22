@@ -16,7 +16,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _currentindex = 0;
+  int _currentindex = 2;
 
   List<Widget> _widgetOption= <Widget>[
     Blog(),
@@ -34,29 +34,36 @@ class _BottomBarState extends State<BottomBar> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.article), label: 'Blog'),
-
           BottomNavigationBarItem(icon: Icon(Icons.video_label_rounded), label: 'Vlog'),
           BottomNavigationBarItem(icon: Icon(Icons.school), label: 'Courses'),
-          BottomNavigationBarItem(icon: Icon(Icons.image), label: 'Gallery'),
-          BottomNavigationBarItem(label: 'Notification',
-          icon: Stack(children: <Widget>[
-          Icon(Icons.doorbell),
-            new Positioned(
-                right: 0,
-                child: new Container(
-                    padding: EdgeInsets.all(1),
-                    decoration: new BoxDecoration(
-                      color: Colors.red,
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    constraints: BoxConstraints(
-                      minWidth: 14,
-                      minHeight: 14,
-                    ),
-                      child: new Text('2',style: new TextStyle(color: Colors.white,fontSize: 8),
-                        textAlign: TextAlign.center),),),],),),],
+          BottomNavigationBarItem(icon: Icon(Icons.image), label: 'Result'),
+          BottomNavigationBarItem(icon: Icon(Icons.doorbell),label: 'New Classes',
+
+
+
+          // icon: Stack(children: <Widget>[
+          // Icon(Icons.doorbell),
+          //   new Positioned(
+          //       right: 0,
+          //       child: new Container(
+          //           padding: EdgeInsets.all(1),
+          //           decoration: new BoxDecoration(
+          //             color: Colors.red,
+          //             borderRadius: BorderRadius.circular(6),
+          //           ),
+          //           constraints: BoxConstraints(
+          //             minWidth: 14,
+          //             minHeight: 14,
+          //           ),
+          //             child: new Text('1',style: new TextStyle(color: Colors.white,fontSize: 8),
+          //               textAlign: TextAlign.center),),),],),
+          //
+
+
+          ),
+        ],
         currentIndex: _currentindex,
-        selectedItemColor: Colors.black,
+        selectedItemColor: Colors.green,
         unselectedItemColor: Colors.grey,
         onTap: _changeItem,
       ),

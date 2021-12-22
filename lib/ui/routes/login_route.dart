@@ -70,7 +70,7 @@ class _LoginRouteState extends State<LoginRoute> with SingleTickerProviderStateM
                       margin: EdgeInsets.fromLTRB(0, 100, 0, 0),
                       width: size.width / 1.5,
                       child: Image(
-                        image: AssetImage('assets/images/appicon.png'),
+                        image: AssetImage('assets/images/app_icon.png'),
                         fit: BoxFit.fitHeight,
 
                       ),

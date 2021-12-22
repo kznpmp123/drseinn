@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:kzn/bottom_nav/bottombar.dart';
 import 'package:kzn/providers/course_provider.dart';
@@ -13,8 +15,18 @@ import 'package:kzn/ui/routes/subscription_route.dart';
 import 'package:kzn/ui/routes/tnc_route.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  //runApp(MyApp());
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  print('Handling a background message ${message.messageId}');
+}
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+
   runApp(
       MultiProvider(
           providers: [
@@ -28,35 +40,36 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "His's & Her's",
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      //home: MyHomePage(title: 'Flutter Demo Home Page'),
-      initialRoute: MainRoute.routeName,
-      routes: {
-        MainRoute.routeName: (context) => BottomBar(),
-        LoginRoute.routeName: (context) => LoginRoute(),
-        SubscriptionRoute.routeName: (context) => SubscriptionRoute(),
-        CourseRoute.routeName: (context) => CourseRoute(),
-        AboutRoute.routeName: (context) => AboutRoute(),
-        TnCRoute.routeName: (context) => TnCRoute(),
-        PrivacyPolicyRoute.routeName: (context) => PrivacyPolicyRoute(),
-        SubscriptionCheckRoute.routeName: (context) => SubscriptionCheckRoute()
-      }
+        title: "Dr Seinn",
+        theme: ThemeData(
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
+        ),
+        //home: MyHomePage(title: 'Flutter Demo Home Page'),
+        initialRoute: MainRoute.routeName,
+        routes: {
+          MainRoute.routeName: (context) => BottomBar(),
+          LoginRoute.routeName: (context) => LoginRoute(),
+          SubscriptionRoute.routeName: (context) => SubscriptionRoute(),
+          CourseRoute.routeName: (context) => CourseRoute(),
+          AboutRoute.routeName: (context) => AboutRoute(),
+          TnCRoute.routeName: (context) => TnCRoute(),
+          PrivacyPolicyRoute.routeName: (context) => PrivacyPolicyRoute(),
+          SubscriptionCheckRoute.routeName: (context) => SubscriptionCheckRoute()
+        }
     );
   }
 }
